@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="univercityBean"
+          class="Univercity">
+        <constructor-arg>
+        <list>
+            <ref bean = "compulsoryCourceBean"/>
+            <ref bean = "electiveCourceBean"/>
+        </list>
+        </constructor-arg>
+
+    </bean>
+
+    <bean id="compulsoryCourceBean"
+          class="CompulsoryCource">
+    <property name="subjects" >
+        <list >
+            <ref bean="subjectBean" />
+            <ref bean="subjectBean" />
+            <ref bean="subjectBean" />
+        </list>
+    </property>
+    </bean>
+
+    <bean id="electiveCourceBean"
+          class="ElectiveCource">
+        <property name="subjects" >
+            <list >
+                <ref bean="subjectBean" />
+                <ref bean="subjectBean" />
+                <ref bean="subjectBean" />
+            </list>
+        </property>
+    </bean>
+
+    <context:property-placeholder location="classpath:subject.properties"/>
+
+    <bean id="subjectBean" class="Subject">
+        <property name="name" value="${subject.name}"/>
+        <property name="hours" value="${subject.hours}"/>
+    </bean>
+
+</beans>
