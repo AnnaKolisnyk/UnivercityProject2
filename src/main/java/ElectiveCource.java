@@ -14,5 +14,6 @@ public class ElectiveCource implements Cource{
         for(Subject s: subjects){
             s.showNameAndHours();
         }
+        System.out.println("------------------------------------------");
     }
 }

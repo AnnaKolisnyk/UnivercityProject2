@@ -23,9 +23,8 @@
           class="CompulsoryCource">
     <property name="subjects" >
         <list >
-            <ref bean="subjectBean" />
-            <ref bean="subjectBean" />
-            <ref bean="subjectBean" />
+            <ref bean="subjectBean1" />
+            <ref bean="subjectBean2" />
         </list>
     </property>
     </bean>
@@ -34,18 +33,27 @@
           class="ElectiveCource">
         <property name="subjects" >
             <list >
-                <ref bean="subjectBean" />
-                <ref bean="subjectBean" />
-                <ref bean="subjectBean" />
+                <ref bean="subjectBean1" />
+                <ref bean="subjectBean3" />
             </list>
         </property>
     </bean>
 
     <context:property-placeholder location="classpath:subject.properties"/>
 
-    <bean id="subjectBean" class="Subject">
+    <bean id="subjectBean1" class="MathSubject">
+        <property name="name" value="Geometry"/>
+        <property name="hours" value="45"/>
+    </bean>
+
+    <bean id="subjectBean2" class="InformaticsSubject">
         <property name="name" value="${subject.name}"/>
         <property name="hours" value="${subject.hours}"/>
+    </bean>
+
+    <bean id="subjectBean3" class="EnglishSubject">
+        <property name="name" value="English for IT"/>
+        <property name="hours" value="50"/>
     </bean>
 
 </beans>
