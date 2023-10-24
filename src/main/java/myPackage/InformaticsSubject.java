@@ -18,13 +18,7 @@ public class InformaticsSubject implements Subject{
     public void showNameAndHours() {
         System.out.println("Informatics subject: " + name + "; hours: " + hours);
     }
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public void setHours(int hours) {
-        this.hours = hours;
-    }
     @PostConstruct
     public void init(){
         System.out.println("-> informaticsSubject bean initialization");

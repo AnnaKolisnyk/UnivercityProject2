@@ -19,14 +19,6 @@ public class MathSubject implements Subject{
         System.out.println("Math subject: " + name + "; hours: " + hours);
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setHours(int hours) {
-        this.hours = hours;
-    }
-
     @PostConstruct
     public void init(){
         System.out.println("-> mathSubject bean initialization");
